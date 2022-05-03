@@ -26,8 +26,8 @@
                 android:layout_width="320dp"
                 android:layout_height="wrap_content"
                 android:gravity="center"
-                android:text="Please Login your
-                account"
+                android:text="Please Enter your
+                information"
                 android:textStyle="bold"
                 android:textSize="32sp" />
 
@@ -81,19 +81,6 @@
 
 
     </androidx.cardview.widget.CardView>
-
-    <TextView
-        android:id="@+id/signupTextview"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textColor="#70DB93"
-        android:gravity="center"
-        android:text="@string/signupEntrance"
-        android:layout_marginTop="80dp"
-
-        >
-
-    </TextView>
 
 
 </LinearLayout>
