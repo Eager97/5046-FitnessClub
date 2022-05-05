@@ -1,4 +1,12 @@
 <resources>
     <string name="app_name">FitnessClub</string>
     <string name="signupEntrance">Don\'t have an account? Get Started</string>
+    <string name="userName_empty_message">User Name should not be empty</string>
+    <string name="firstName_empty_message">First Name should not be empty</string>
+    <string name="lastName_empty_message">Last Name should not be empty</string>
+    <string name="email_error_format_message">Please enter right E-Mail Address</string>
+    <string name="email_empty_message">E-Mail Address should not be empty</string>
+    <string name="password_empty_message">Pass word should not be empty</string>
+    <string name="reenter_password_empty_message">Reenter Pass word should not be empty</string>
+    <string name="reenter_password_different_message">Reenter Pass must same with the password</string>
 </resources>

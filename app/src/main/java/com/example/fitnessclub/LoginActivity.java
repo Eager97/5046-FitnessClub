@@ -19,10 +19,11 @@ public class LoginActivity extends AppCompatActivity {
         View view = binding.getRoot();
         setContentView(view);
 
+        //jump to the signup screen when user click the get started text
         binding.signupTextview.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-            Intent intent = new Intent(LoginActivity.this,SignupActivity.class);
+                Intent intent = new Intent(LoginActivity.this,SignupActivity.class);
             startActivity(intent);
             }
         });

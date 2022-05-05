@@ -32,14 +32,17 @@
                 android:textSize="32sp" />
 
             <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/accountInputText"
+
                 android:layout_width="320dp"
                 android:layout_height="wrap_content"
                 android:hint="User Name"
-                android:padding="15dp">
+                android:padding="15dp"
+                android:id="@+id/userNameInputError"
+                >
 
 
                 <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/userNameInputText"
                     android:layout_width="290dp"
                     android:layout_height="match_parent">
 
@@ -48,14 +51,16 @@
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/firstNameInputText"
+
                 android:layout_width="320dp"
                 android:layout_height="wrap_content"
                 android:hint="First Name"
-                android:padding="15dp">
+                android:padding="15dp"
+                android:id="@+id/firstNameInputError">
 
 
                 <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/firstNameInputText"
                     android:layout_width="290dp"
                     android:layout_height="match_parent">
 
@@ -64,14 +69,16 @@
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/lastNameInputText"
+
                 android:layout_width="320dp"
                 android:layout_height="wrap_content"
                 android:hint="Last Name"
-                android:padding="15dp">
+                android:padding="15dp"
+                android:id="@+id/lastNameInputError">
 
 
                 <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/lastNameInputText"
                     android:layout_width="290dp"
                     android:layout_height="match_parent">
 
@@ -80,52 +87,61 @@
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/emailAddressInputText"
+
                 android:layout_width="320dp"
                 android:layout_height="wrap_content"
                 android:hint="E-Mail Address"
-                android:padding="15dp">
+                android:padding="15dp"
+                android:id="@+id/emailAddressInputError"
+                >
 
 
                 <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/emailAddressInputText"
                     android:layout_width="290dp"
-                    android:layout_height="match_parent">
+                    android:layout_height="match_parent"
+                    android:inputType="textEmailAddress"
+                        >
 
                 </com.google.android.material.textfield.TextInputEditText>
 
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/passwordInputText"
+
                 android:layout_width="320dp"
                 android:layout_height="wrap_content"
                 android:hint="Password"
                 android:padding="15dp"
                 app:endIconMode="password_toggle"
-
+                android:id="@+id/passwordInputError"
                 >
 
 
                 <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/passwordInputText"
                     android:layout_width="290dp"
                     android:layout_height="wrap_content"
-                    android:inputType="textPassword">
+                    android:inputType="textPassword"
+                    >
 
                 </com.google.android.material.textfield.TextInputEditText>
 
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/passwordCheckInputText"
+
                 android:layout_width="320dp"
                 android:layout_height="wrap_content"
                 android:hint="Reenter Password"
                 android:padding="15dp"
                 app:endIconMode="password_toggle"
+                android:id="@+id/reenterPasswordInputError"
                 >
 
 
                 <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/reenterPasswordInputText"
                     android:layout_width="290dp"
                     android:layout_height="wrap_content"
                     android:inputType="textPassword"
@@ -139,7 +155,7 @@
 
 
             <Button
-                android:id="@+id/loginButton"
+                android:id="@+id/signUpButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
@@ -156,7 +172,7 @@
 
 
     <TextView
-        android:id="@+id/signupTextview"
+        android:id="@+id/backLoginScreenTextview"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textColor="#70DB93"
