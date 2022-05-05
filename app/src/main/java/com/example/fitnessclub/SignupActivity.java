@@ -42,12 +42,16 @@ public class SignupActivity extends AppCompatActivity {
 
 
     private void checkSignUpValid() {
+        boolean isValidUserName = false;
+        boolean isValidfirstName = false;
+
         binding.userNameInputText.getText(); //get username
         binding.firstNameInputText.getText();//get first name
         binding.lastNameInputText.getText();//get last name
         binding.emailAddressInputText.getText();  //get email address
         binding.passwordInputText.getText();// get password
         binding.reenterPasswordInputText.getText();// get reenter password
+
 
         if (binding.userNameInputText.getText().toString().isEmpty()) {
             binding.userNameInputError.setError(getResources().getString(R.string.userName_empty_message));
@@ -104,6 +108,8 @@ public class SignupActivity extends AppCompatActivity {
         else {
             binding.reenterPasswordInputError.setErrorEnabled(false);
         }
+
+
     }
 
 }
