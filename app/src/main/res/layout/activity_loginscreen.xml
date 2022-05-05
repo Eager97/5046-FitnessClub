@@ -35,12 +35,12 @@
                 android:id="@+id/accountInputText"
                 android:layout_width="320dp"
                 android:layout_height="wrap_content"
-                android:hint="account"
+                android:hint="User Name"
                 android:padding="15dp">
 
 
                 <com.google.android.material.textfield.TextInputEditText
-                    android:layout_width="320dp"
+                    android:layout_width="290dp"
                     android:layout_height="match_parent">
 
                 </com.google.android.material.textfield.TextInputEditText>
@@ -51,12 +51,14 @@
                 android:id="@+id/passwordInputText"
                 android:layout_width="320dp"
                 android:layout_height="wrap_content"
-                android:hint="password"
-                android:padding="15dp">
+                android:hint="Password"
+                android:padding="15dp"
+                app:endIconMode="password_toggle"
+                >
 
 
                 <com.google.android.material.textfield.TextInputEditText
-                    android:layout_width="320dp"
+                    android:layout_width="290dp"
                     android:layout_height="wrap_content"
                     android:inputType="textPassword"
                     >
