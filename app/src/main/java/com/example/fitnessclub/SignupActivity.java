@@ -3,18 +3,27 @@ package com.example.fitnessclub;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.util.Patterns;
 import android.view.View;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.fitnessclub.databinding.ActivitySignupscreenBinding;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 import java.util.regex.Pattern;
 
 public class SignupActivity extends AppCompatActivity {
     private ActivitySignupscreenBinding binding;
+    private FirebaseAuth mAuth;
+
 
     @Override
     protected void onCreate(Bundle savedInsatanceState) {
@@ -22,6 +31,9 @@ public class SignupActivity extends AppCompatActivity {
         binding = ActivitySignupscreenBinding.inflate(getLayoutInflater());
         View view = binding.getRoot();
         setContentView(view);
+
+        // Initialize Firebase Auth
+        mAuth = FirebaseAuth.getInstance();
 
         //back to login screen when user click the back text.
         binding.backLoginScreenTextview.setOnClickListener(new View.OnClickListener() {
@@ -130,8 +142,30 @@ public class SignupActivity extends AppCompatActivity {
 
         if (isValidUserName && isValidFirstName && isValidLastName && isValidEmail && isValidPassword && isValidReenterPassword){
 
-            //if all of the information signup are valid,show success message
-            Toast.makeText(SignupActivity.this, "Sign Up Success!", Toast.LENGTH_SHORT).show();
+            mAuth.createUserWithEmailAndPassword(binding.emailAddressInputText.getText().toString(), binding.passwordInputText.getText().toString())
+                    .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+                        @Override
+                        public void onComplete(@NonNull Task<AuthResult> task) {
+                            if (task.isSuccessful()) {
+                                // Sign in success, update UI with the signed-in user's information
+
+                                FirebaseUser user = mAuth.getCurrentUser();
+
+                                Toast.makeText(SignupActivity.this, "Sign Up Success.",
+                                        Toast.LENGTH_SHORT).show();
+
+                                startActivity(new Intent(SignupActivity.this,LoginActivity.class));
+                            } else {
+                                // If sign in fails, display a message to the user.
+
+                                Toast.makeText(SignupActivity.this, "Sign Up Failed.",
+                                        Toast.LENGTH_SHORT).show();
+
+                            }
+                        }
+                    });
+
+
         }
     }
 
