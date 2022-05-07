@@ -3,6 +3,11 @@ package com.example.fitnessclub;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.view.View;
+
+import com.example.fitnessclub.databinding.ActivityMainBinding;
+import com.example.fitnessclub.databinding.ActivitySignupscreenBinding;
+
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -11,11 +16,15 @@ import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
 public class MainActivity extends AppCompatActivity {
+    private ActivityMainBinding binding;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        binding = ActivityMainBinding.inflate(getLayoutInflater());
+        View view = binding.getRoot();
+        setContentView(view);
 
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl("https://api.openweathermap.org/data/2.5/")
@@ -31,8 +40,8 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onResponse(Call<Root> call, Response<Root> response) {
                 Root root = response.body(); //get root
-                root.getMain().getTemp();
-                System.out.println();
+                double temp = root.getMain().getTemp() - 273.15;
+                binding.tempTextView.setText(String.valueOf((int)temp));
             }
 
             @Override
