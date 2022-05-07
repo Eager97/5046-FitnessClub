@@ -1,4 +1,4 @@
-package com.example.fitnessclub.model;
+package com.example.fitnessclub;
 
 import java.util.ArrayList;
 

@@ -1,6 +1,5 @@
 package com.example.fitnessclub;
 
-import com.example.fitnessclub.model.Root;
 import retrofit2.Call;
 import retrofit2.http.GET;
 
