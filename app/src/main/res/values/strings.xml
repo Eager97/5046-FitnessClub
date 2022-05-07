@@ -9,4 +9,5 @@
     <string name="password_empty_message">Pass word should not be empty</string>
     <string name="reenter_password_empty_message">Reenter Pass word should not be empty</string>
     <string name="reenter_password_different_message">Reenter Pass must same with the password</string>
+    <string name="weather_api_URL"></string>
 </resources>
