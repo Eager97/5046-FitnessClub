@@ -9,6 +9,8 @@ import com.example.fitnessclub.databinding.ActivityMainBinding;
 import com.example.fitnessclub.databinding.ActivitySignupscreenBinding;
 
 
+import java.util.ArrayList;
+
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -41,7 +43,13 @@ public class MainActivity extends AppCompatActivity {
             public void onResponse(Call<Root> call, Response<Root> response) {
                 Root root = response.body(); //get root
                 double temp = root.getMain().getTemp() - 273.15;
-                binding.tempTextView.setText(String.valueOf((int)temp));
+                binding.tempTextView.setText("Temperature: "+String.valueOf((int)temp)+" °");
+                String name = root.getName();
+                binding.locateNameTextView.setText(name);
+                ArrayList<Weather> weathers = root.getWeather();
+
+                //binding.weatherDescriptionTextview.setText(weatherDescription);
+
             }
 
             @Override

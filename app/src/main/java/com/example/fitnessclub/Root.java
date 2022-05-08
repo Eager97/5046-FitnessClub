@@ -30,6 +30,22 @@ public class Root{
     public void setMain(Main main){
         this.main = main;
     }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public ArrayList<Weather> getWeather() {
+        return weather;
+    }
+
+    public void setWeather(ArrayList<Weather> weather) {
+        this.weather = weather;
+    }
 }
 
 class Clouds{
@@ -71,6 +87,14 @@ class Weather{
     public String main;
     public String description;
     public String icon;
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
 }
 
 class Wind{
