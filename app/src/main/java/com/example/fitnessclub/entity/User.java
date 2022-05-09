@@ -10,51 +10,35 @@ public class User {
 
     @PrimaryKey
     @NonNull  //should not be empty
-    @ColumnInfo(name = "user_id")
-    private String userId;
+    @ColumnInfo(name = "training_name")
+    private String trainingName;
 
     @NonNull
-    @ColumnInfo(name = "first_name")
-    private String firstName;
+    @ColumnInfo(name = "training_duration")
+    private double trainingDuration;
+
+
+    public User(@NonNull String trainingName, @NonNull double trainingDuration){
+        this.trainingName = trainingName;
+        this.trainingDuration = trainingDuration;
+
+    }
+
 
     @NonNull
-    @ColumnInfo(name = "last_name")
-    private String lastName;
-
-    public User(@NonNull String userID, @NonNull String firstName, @NonNull String lastName){
-        this.userId = userID;
-        this.firstName = firstName;
-        this.lastName = lastName;
+    public String getTrainingName() {
+        return trainingName;
     }
 
-    public User() {
-
+    public void setTrainingName(@NonNull String trainingName) {
+        this.trainingName = trainingName;
     }
 
-    @NonNull
-    public String getUserId(){
-        return userId;
+    public double getTrainingDuration() {
+        return trainingDuration;
     }
 
-    public void setUserId(@NonNull String userId){
-        this.userId = userId;
-    }
-
-    @NonNull
-    public String getFirstName(){
-        return firstName;
-    }
-
-    public void setFirstName(@NonNull String firstName){
-        this.firstName = firstName;
-    }
-
-    @NonNull
-    public String getLastName(){
-        return lastName;
-    }
-
-    public void setLastName(@NonNull String lastName){
-        this.lastName = lastName;
+    public void setTrainingDuration(double trainingDuration) {
+        this.trainingDuration = trainingDuration;
     }
 }

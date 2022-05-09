@@ -19,9 +19,9 @@ public interface UserDao {
     @Query("DELETE FROM user_table")
     void deleteAll();
 
-    @Query("SELECT * FROM user_table ORDER BY first_name ASC")
-    List<User> getUsersByFirstName();
+    @Query("SELECT * FROM user_table ORDER BY training_duration ASC")
+    List<User> getTrainingDuration();
 
-    @Query("SELECT * FROM user_table ORDER BY user_id ASC")
-    LiveData<List<User>> getUserOrderByIDInLiveData();
+    @Query("SELECT * FROM user_table ORDER BY training_name ASC")
+    LiveData<List<User>> getTrainingByTrainingName();
 }

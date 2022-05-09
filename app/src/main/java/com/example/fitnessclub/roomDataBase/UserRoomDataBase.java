@@ -48,9 +48,9 @@ public abstract class UserRoomDataBase extends RoomDatabase {
                 UserDao dao = INSTANCE.userDao();
                 dao.deleteAll();
 
-                User user = new User("001","first","tester");
+                User user = new User("001",10);
                 dao.insert(user);
-                user = new User("002","second","tester");
+                user = new User("002",20);
                 dao.insert(user);
             });
         }

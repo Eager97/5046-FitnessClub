@@ -18,7 +18,7 @@ public class UserRepository {
     public UserRepository(Application application){
         UserRoomDataBase db = UserRoomDataBase.getDatabase(application);
         mUserDao = db.userDao();
-        mAllUsers = mUserDao.getUserOrderByIDInLiveData();
+        mAllUsers = mUserDao.getTrainingByTrainingName();
 
     }
 
