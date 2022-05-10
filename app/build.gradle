@@ -53,6 +53,13 @@ dependencies {
     implementation 'com.squareup.retrofit2:converter-gson:2.9.0'
     implementation 'com.google.code.gson:gson:2.8.6'
 
+    // navigation
+    implementation 'androidx.navigation:navigation-fragment:2.3.5'
+    implementation 'androidx.navigation:navigation-ui:2.3.5'
+
+    // fragment
+    implementation 'androidx.fragment:fragment:1.4.0'
+
     // ViewModel and LiveData
     implementation 'androidx.lifecycle:lifecycle-viewmodel:2.4.1'
     implementation 'androidx.lifecycle:lifecycle-livedata:2.4.1'
