@@ -5,8 +5,8 @@ import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
-@Entity(tableName = "user_table")
-public class User {
+@Entity(tableName = "training_table")
+public class Training {
 
     @PrimaryKey
     @NonNull  //should not be empty
@@ -18,7 +18,7 @@ public class User {
     private double trainingDuration;
 
 
-    public User(@NonNull String trainingName, @NonNull double trainingDuration){
+    public Training(@NonNull String trainingName, @NonNull double trainingDuration){
         this.trainingName = trainingName;
         this.trainingDuration = trainingDuration;
 

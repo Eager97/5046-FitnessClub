@@ -24,6 +24,8 @@
 
         <activity android:name=".SignupActivity"  android:windowSoftInputMode="adjustResize"/>
         <activity android:name=".MainActivity"  android:windowSoftInputMode="adjustResize"/>
+        <activity android:name=".TrainingActivity"  android:windowSoftInputMode="adjustResize"/>
+        <activity android:name=".NewTrainingActivity"  android:windowSoftInputMode="adjustResize"/>
 
     </application>
 
