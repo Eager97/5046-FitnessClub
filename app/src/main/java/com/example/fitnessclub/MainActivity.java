@@ -1,17 +1,18 @@
 package com.example.fitnessclub;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.FragmentManager;
+import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.navigation.NavController;
-import androidx.navigation.fragment.NavHostFragment;
+import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
+
 
 import android.os.Bundle;
 import android.view.View;
 
 import com.example.fitnessclub.databinding.ActivityMainBinding;
-import com.example.fitnessclub.databinding.ActivitySignupscreenBinding;
+import com.google.android.material.navigation.NavigationView;
 
 
 import java.util.ArrayList;
@@ -34,26 +35,19 @@ public class MainActivity extends AppCompatActivity {
         View view = binding.getRoot();
         setContentView(view);
 
-        setSupportActionBar(binding.appBar.toolbar);
-
+        // set navigation drawer
+        setSupportActionBar(binding.appBarMain.toolbar);
+        DrawerLayout drawer = binding.drawerLayout;
+        NavigationView navigationView = binding.navView;
         mAppBarConfiguration = new AppBarConfiguration.Builder(
-                R.id.nav_main_activity,
-                R.id.nav_new_training_activity)
-                .setOpenableLayout(binding.drawerLayout)
+                R.id.nav_main_activity, R.id.nav_new_training_activity)
+                .setOpenableLayout(drawer)
                 .build();
+        NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_main);
+        NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
+        NavigationUI.setupWithNavController(navigationView, navController);
 
-        FragmentManager fragmentManager= getSupportFragmentManager();
-        NavHostFragment navHostFragment = (NavHostFragment)
-                fragmentManager.findFragmentById(R.id.nav_host_fragment);
-        NavController navController = navHostFragment.getNavController();
-
-        //Sets up a NavigationView for use with a NavController.
-        NavigationUI.setupWithNavController(binding.navView, navController);
-        //Sets up a Toolbar for use with a NavController.
-        NavigationUI.setupWithNavController(binding.appBar.toolbar,navController,
-                mAppBarConfiguration);
-
-
+        // retrofit to use weather API
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl("https://api.openweathermap.org/data/2.5/")
                 .addConverterFactory(GsonConverterFactory.create()) //convert to json format
