@@ -1,0 +1,100 @@
+// 5046
+// 因为我的电脑电源适配器咩了然后我现在只能打在文档里，我已经在问了但是最近几周都没有复工的有能用的，问了售后也是因为仓库没人上班所以发不了。
+// 是真的！！！我还有照片！
+
+
+// home_fragment.xml
+// lab 7
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+ 	android:layout_width="match_parent"
+	 android:layout_height="match_parent"
+	 android:orientation="vertical"
+ 	android:gravity="center">
+ 	<TextView
+ 		android:id="@+id/text_message"
+		android:layout_width="match_parent"
+ 		android:layout_height="wrap_content"
+ 		android:textSize="20sp"
+ 		android:text="This is Home"
+		 android:gravity="center_horizontal" />
+</LinearLayout>
+
+// SharedViewModel
+// root下面
+// lab 7
+public class SharedViewModel extends ViewModel 
+{
+ 	private MutableLiveData<String> mText;
+ 	public SharedViewModel()
+	{
+ 		mText = new MutableLiveData<String>();
+ 	}
+ 	public void setMessage(String message) 
+	{
+ 		mText.setValue(message);
+	}
+ 	public LiveData<String> getText()
+	 {
+ 		return mText;
+ 	} 
+}
+
+// add fragment
+//ExtendFragment
+// view model 下面
+// lab 7
+public class AddFragment extends Fragment 
+{
+ 	private AddFragmentBinding addBinding;
+	 public AddFragment(){}
+ 	@Override
+ 	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) 
+	{
+ 		addBinding = AddFragmentBinding.inflate(inflater, container, false);
+ 		View view = addBinding.getRoot();
+ 		SharedViewModel model = newViewModelProvider(getActivity()).get(SharedViewModel.class);
+ 		addBinding.addButton.setOnClickListener(new View.OnClickListener()
+		 {
+ 			@Override
+ 			public void onClick(View v) 
+			{
+ 				String message = addBinding.editText.getText().toString();
+ 				if (!message.isEmpty() )
+				 {
+ 					model.setMessage(message);
+				 }
+ 			}
+		 });
+ 		addBinding.clearButton.setOnClickListener(new View.OnClickListener()
+		{
+ 			@Override
+ 			public void onClick(View v)
+			 {
+ 				addBinding.editText.setText("");
+ 			}
+ 		});
+		 return view;
+ 	}
+ 	@Override
+ 	public void onDestroyView() 
+	{
+ 		super.onDestroyView();
+ 		addBinding = null;
+	 } 
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
