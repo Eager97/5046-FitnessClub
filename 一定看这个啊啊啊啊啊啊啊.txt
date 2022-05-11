@@ -147,3 +147,42 @@ public class HomeFragment extends Fragment
  	}
 }
 
+// resources下面新建一个navigation(and... res... file)
+// + home fragment 框 (这个应该设为主界面)
+// +add fragment 框
+// + view fragment 框
+// 我觉得不需要连线，放着应该就ok?
+// 需要替换一下三个的id
+
+// 转去main activity
+// 贴进去的
+// lab 7
+public class MainActivity extends AppCompatActivity 
+{
+	private ActivityMainBinding binding;
+	private AppBarConfiguration mAppBarConfiguration; 
+	@Override
+	protected void onCreate(Bundle savedInstanceState) 
+	{
+		super.onCreate(savedInstanceState);
+		binding = ActivityMainBinding.inflate(getLayoutInflater());
+		View view = binding.getRoot();
+		setContentView(view);
+ 
+		setSupportActionBar(binding.appBar.toolbar);
+ 
+		mAppBarConfiguration = new AppBarConfiguration.Builder(R.id.nav_home_fragment, R.id.nav_add_fragment, R.id.nav_view_fragment)
+		//to display the Navigation button as a drawer symbol,not being shown as an Up button
+			 .setOpenableLayout(binding.drawerLayout)
+		 	.build();
+ 		FragmentManager fragmentManager= getSupportFragmentManager();
+		NavHostFragment navHostFragment = (NavHostFragment) 
+		fragmentManager.findFragmentById(R.id.nav_host_fragment);
+ 		NavController navController = navHostFragment.getNavController();
+ 		//Sets up a NavigationView for use with a NavController.
+		NavigationUI.setupWithNavController(binding.navView, navController);
+		//Sets up a Toolbar for use with a NavController.
+		NavigationUI.setupWithNavController(binding.appBar.toolbar,navController, mAppBarConfiguration);
+	 }
+}
+
