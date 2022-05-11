@@ -186,3 +186,22 @@ public class MainActivity extends AppCompatActivity
 	 }
 }
 
+// 我记得好像是有添加天气？但是我不太确定这个部分的
+// 依旧是home fragment里面
+// 在之前那些里面插入这几行？：
+//...
+	Retrofit retrofit = new Retrofit.Builder()
+		.baseUrl("这应该是api.openweathermap.org.巴拉巴拉巴拉")
+		.addConverterFactory(GsonConverterFactory.create())
+		.build();
+	WeatherApiInterface weatherApiInterface = retrofit.creat(WeatherApiInterface.class);
+	Call<Root> call weatherApiInterface.getWeather();
+	Call.enqueue(new Callback<Root>call, Throwable t)
+	{
+		System.out.println(t.getMessage());
+	}
+});
+
+// 这里后面应该是return view; 巴拉巴拉
+//
+
