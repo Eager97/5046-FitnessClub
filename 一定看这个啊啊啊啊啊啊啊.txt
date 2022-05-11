@@ -44,6 +44,8 @@ public class SharedViewModel extends ViewModel
 //ExtendFragment
 // view model 下面
 // lab 7
+// package .......
+// import androidx.fragment.app.fragment;
 public class AddFragment extends Fragment 
 {
  	private AddFragmentBinding addBinding;
@@ -85,16 +87,63 @@ public class AddFragment extends Fragment
 }
 
 
+// view fragment
+// lab 7
+// root下面
+// package .......
+// import androidx.fragment.app.fragment;
 
+public class ViewFragment extends Fragment 
+{
+	private ViewFragmentBinding binding;
+ 	public ViewFragment(){}
+ 	@Override
+ 	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+		 // Inflate the View for this fragment using the binding
+		 binding = ViewFragmentBinding.inflate(inflater, container, false);
+ 		View view = binding.getRoot();
+		 SharedViewModel model = new 
+	ViewModelProvider(requireActivity()).get(SharedViewModel.class);
+ 		model.getText().observe(getViewLifecycleOwner(), new Observer<String>() 
+		{
+ 			@Override
+ 			public void onChanged(@Nullable String s)
+			 {
+ 				binding.textMessage.setText(s);
+ 			}
+		 });
+		 return view;
+	 }
+ 	@Override
+ 	public void onDestroyView() 
+	{
+ 		super.onDestroyView();
+ 		binding = null;
+ 	}
+}
 
-
-
-
-
-
-
-
-
-
-
+// home fragment
+// lab 7
+// view model 下面
+// package .......
+// import
+public class HomeFragment extends Fragment 
+{
+ 	private SharedViewModel model;
+ 	private HomeFragmentBinding addBinding;
+ 	public HomeFragment(){}
+ 	@Override
+ 	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+ 		// Inflate the View for this fragment
+ 		addBinding = HomeFragmentBinding.inflate(inflater, container, false);
+ 		View view = addBinding.getRoot();
+ 		return view;
+	}
+ 	@Override
+ 	public void onDestroyView() 
+	{
+		 super.onDestroyView();
+ 		addBinding = null;
+ 	}
+}
 
