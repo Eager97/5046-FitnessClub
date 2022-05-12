@@ -13,10 +13,84 @@
 // reference:
 //GitHub - AnyChart/AnyChart-Android: AnyChart Android Chart is an amazing data visualization library for easily creating interactive charts in Android apps. It runs on API 19+ (Android 4.4) and features dozens of built-in chart types. (2022). Retrieved 12 May 2022, from https://github.com/AnyChart/AnyChart-Android
 
-maven{url 'https://jitpack.io'}
+贴maven { url 'https://jitpack.io' }
 // 把这个贴在settings.gradle里有一个dependencyResolutionManagement下面
 
+贴implementation 'com.github.AnyChart:AnyChart-Android:1.1.2'
+//gredles Scripts -> build.grade -> dependencies{....里面}
+// anychart
 
+// reference:
+// AnyChart-Android/PieChartActivity.java at master · AnyChart/AnyChart-Android. (2022). Retrieved 12 May 2022, from https://github.com/AnyChart/AnyChart-Android/blob/master/sample/src/main/java/com/anychart/sample/charts/PieChartActivity.java
+// AnyChart-Android/activity_chart_common.xml at master · AnyChart/AnyChart-Android. (2022). Retrieved 12 May 2022, from https://github.com/AnyChart/AnyChart-Android/blob/master/sample/src/main/res/layout/activity_chart_common.xml
 
+// res -> layout -> chart_avtivity.xml, 贴
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    >
 
+    <com.anychart.AnyChartView
+        android:id="@+id/any_chart_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        />
+
+    <ProgressBar
+        android:id="@+id/progress_bar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+
+//
+// java -> ... -> viewMode -> Chart_Activity
+//
+ ......跟在原来的后面。。。。。。。。。。
+        AnyChartView anyChartView = findViewById(R.id.any_chart_view);
+        anyChartView.setProgressBar(findViewById(R.id.progress_bar));
+
+        Pie pie = AnyChart.pie();
+
+        pie.setOnClickListener(new ListenersInterface.OnClickListener(new String[]{"x", "value"}) {
+            @Override
+            public void onClick(Event event) {
+                Toast.makeText(Chart_Activity.this, event.getData().get("x") + ":" + event.getData().get("value"), Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        List<DataEntry> data = new ArrayList<>();
+        data.add(new ValueDataEntry("Apples", 6371664));
+        data.add(new ValueDataEntry("Pears", 789622));
+        data.add(new ValueDataEntry("Bananas", 7216301));
+        data.add(new ValueDataEntry("Grapes", 1486621));
+        data.add(new ValueDataEntry("Oranges", 1200000));
+
+        pie.data(data);
+
+        pie.title("Fruits imported in 2015 (in kg)");
+
+        pie.labels().position("outside");
+
+        pie.legend().title().enabled(true);
+        pie.legend().title()
+                .text("Retail channels")
+                .padding(0d, 0d, 10d, 0d);
+
+        pie.legend()
+                .position("center-bottom")
+                .itemsLayout(LegendLayout.HORIZONTAL)
+                .align(Align.CENTER);
+
+        anyChartView.setChart(pie);
+    }
+}
 
