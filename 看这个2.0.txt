@@ -39,7 +39,7 @@ android.enableJetifier=true
 
 
 // res -> layout -> chart_avtivity.xml, 贴
-// 没改完
+// 
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
@@ -109,13 +109,13 @@ android.enableJetifier=true
 
         pie.data(data);
 
-        pie.title("Fruits imported in 2015 (in kg)");
+        pie.title("Favourate Program Practice Times");
 
         pie.labels().position("outside");
 
         pie.legend().title().enabled(true);
         pie.legend().title()
-                .text("Retail channels")
+                .text("---Your Selected 3 Programs---")
                 .padding(0d, 0d, 10d, 0d);
 
         pie.legend()
