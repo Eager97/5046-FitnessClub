@@ -1,0 +1,13 @@
+# 再看看这个！
+
+
+// chart
+// https://github.com/PhilJay/MPAndroidChart/tree/master/MPChartExample/src/main/res/layout
+
+maven{url 'https://jitpack.io'}
+// 把这个贴在settings.gradle里有一个dependencyResolutionManagement下面
+
+
+
+
+
