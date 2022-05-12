@@ -10,6 +10,8 @@
 
 // https://github.com/AnyChart/AnyChart-Android
 // 网址2
+// reference:
+//GitHub - AnyChart/AnyChart-Android: AnyChart Android Chart is an amazing data visualization library for easily creating interactive charts in Android apps. It runs on API 19+ (Android 4.4) and features dozens of built-in chart types. (2022). Retrieved 12 May 2022, from https://github.com/AnyChart/AnyChart-Android
 
 maven{url 'https://jitpack.io'}
 // 把这个贴在settings.gradle里有一个dependencyResolutionManagement下面
